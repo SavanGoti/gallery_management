@@ -18,13 +18,13 @@ include "header.php";
 ?>
 
     <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-7">
             <div class="card">
-                <div class="card-body">
+                <!-- <div class="card-body">
                     <div class="mb-2">
                         <button type="button" class="btn btn-primary albumModalBtn" data-id="0" data-bs-toggle="modal" data-bs-target="#albumModal">Create Album</button>
                     </div>
-                    <table class="table table-striped" id="myTable" style="width:100%">
+                    <table class="table table-striped ajax-dataTable" id="myTable" style="width:100%">
                         <thead>
                             <tr>
                                 <th>id</th>
@@ -77,6 +77,24 @@ include "header.php";
                             </li>
                         </ul>
                     </nav>
+                </div> -->
+
+                <div class="card-body">
+                    <div class="mb-2">
+                        <button type="button" class="btn btn-primary albumModalBtn" data-id="0" data-bs-toggle="modal" data-bs-target="#albumModal">Create Album</button>
+                    </div>
+                    <table class="table table-striped ajax-dataTable" id="myTable" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th class="w-50">Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

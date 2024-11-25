@@ -18,18 +18,19 @@ $(document).ready(function(){
     $('.delete_album').click(function(){
         var el = $(this);
         var id = $(this).data('id');
-        
-        $.ajax({
-            url: "delete_album.php",
-            type: "post",
-            data: {
-                id:id
-            },
-            dataType: "text",
-            success: function(response){
-                el.closest('tr').remove();
-            }
-        });
+        if(confirm('are you delete this record?')){
+            $.ajax({
+                url: "delete_album.php",
+                type: "post",
+                data: {
+                    id:id
+                },
+                dataType: "text",
+                success: function(response){
+                    el.closest('tr').remove();
+                }
+            });
+        }
     });
 
     $("#dragandDropImage").change(function(){
@@ -122,4 +123,20 @@ $(document).ready(function(){
             }
         });
     });
+
+    
+});
+$('.ajax-dataTable').DataTable({
+    // processing: true,
+    // serverSide: true,
+    ajax: {
+        url: "table.php",
+        type: "POST",
+        dataSrc: "",
+    },
+    columns: [
+        { data: "id" },
+        { data: "name" },
+        { data: "action", }
+    ],
 });
