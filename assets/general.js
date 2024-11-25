@@ -127,8 +127,8 @@ $(document).ready(function(){
     
 });
 $('.ajax-dataTable').DataTable({
-    // processing: true,
-    // serverSide: true,
+    processing: true,
+    serverSide: false,
     ajax: {
         url: "table.php",
         type: "POST",
