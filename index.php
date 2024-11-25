@@ -14,25 +14,9 @@ if (isset($_POST["submit"])) {
     }
 }
 
+include "header.php";
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery management</title>
-    
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/dataTables.dataTables.min.css">
-
-</head>
-<body>
-    
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
@@ -122,46 +106,4 @@ if (isset($_POST["submit"])) {
     </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/dataTables.min.js"></script>
-
-    <script>
-        $(document).ready(function(){
-            
-            // $('#myTable').DataTable();
-
-            $(".albumModalBtn").click(function(){
-                var id = $(this).data('id');
-                $.ajax({
-                    url: "albumFormData.php",
-                    type: "post",
-                    data: {
-                        id:id
-                    },
-                    dataType: "text",
-                    success: function(response){
-                        $(".albumFormData").html(response);
-                    }
-                });
-            });
-            
-            $('.delete_album').click(function(){
-                var el = $(this);
-                var id = $(this).data('id');
-                
-                $.ajax({
-                    url: "delete_album.php",
-                    type: "post",
-                    data: {
-                        id:id
-                    },
-                    dataType: "text",
-                    success: function(response){
-                        el.closest('tr').remove();
-                    }
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+<?php include "footer.php"; ?>
